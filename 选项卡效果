@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>选项卡效果</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="js/jquery.js"></script>
+    <style>
+        /*样式重置*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size: 14px;
+        }
+        .clearfix:after{
+            display: block;
+            content: '';
+            height: 0;
+            clear: both;
+            visibility: hidden;
+            overflow: hidden;
+        }
+        .clearfix{
+            zoom: 1;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        /*选显卡样式 s*/
+        .choose-film-time{
+            margin: 0 auto;
+            height: 35px;
+            overflow: hidden;
+            background-color: #eeeeec;
+            padding-left: 5px;
+            border-top: 1px solid #e8e8e7;
+            border-bottom: 1px solid #e8e8e7;
+        }
+        .time-for-film{
+            display: inline-block;
+            padding: 4px 4px;
+            margin-top: 5px;
+            font-size: 11px;
+            color: #3f3f3f;
+            cursor: pointer;
+            outline: none;
+            box-shadow: none;
+            border: none;
+        }
+        .active{
+            background-color: #e8591f;
+            border-radius: 15px;
+            color: #ffffff;
+        }
+        .film-main{
+            width: 100%;
+        }
+        .film-end-time{
+            display: none;
+            padding: 0 15px;
+        }
+        /*选显卡样式 e*/
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="choose-film-time">
+        <span class="time-for-film active">今天3月10日</span>
+        <span class="time-for-film">明天3月10日</span>
+        <span class="time-for-film">后天3月10日</span>
+    </div>
+    <div class="film-main">
+        <div class="film-end-time" style="display: block;">
+            选项卡内容11111111111111111111111
+        </div>
+        <div class="film-end-time">
+            选项卡内容22222222222222222222222
+        </div>
+        <div class="film-end-time">
+            选项卡内容33333333333333333333333
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        /*选项卡效果*/
+        $(".time-for-film").click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            var item = $(this).index();
+            $(".film-end-time").eq(item).fadeIn().siblings().hide();
+        })
+    })
+</script>
